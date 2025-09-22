@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="#0E1115"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/statusText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="DISCONNECTED"
+        android:textColor="#FF5252"
+        android:textSize="18sp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="24dp"/>
+
+    <TextView
+        android:id="@+id/timerText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="00:00:00"
+        android:textColor="#FFFFFF"
+        android:textSize="36sp"
+        android:layout_below="@id/statusText"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="8dp"/>
+
+    <TextView
+        android:id="@+id/bandText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="DL: 0 KB  UP: 0 KB"
+        android:textColor="#CCCCCC"
+        android:textSize="14sp"
+        android:layout_below="@id/timerText"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="8dp"/>
+
+    <Button
+        android:id="@+id/connectBtn"
+        android:layout_width="220dp"
+        android:layout_height="220dp"
+        android:text="⏻"
+        android:textSize="40sp"
+        android:layout_centerInParent="true"
+        android:background="@drawable/green_circle"
+        android:textColor="#FFFFFF"/>
+
+    <TextView
+        android:id="@+id/serverLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="No server"
+        android:textColor="#FFFFFF"
+        android:layout_below="@id/connectBtn"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"/>
+
+</RelativeLayout>
