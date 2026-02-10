@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Shadowmere GitHub Bridge</title>
+</head>
+<body>
+<pre id="out">loading…</pre>
+
+<script>
+(async () => {
+  try {
+    const res = await fetch("https://shadowmere.xyz/api/proxies/?format=json", {
+      headers: {
+        "User-Agent": navigator.userAgent,
+        "Accept": "application/json",
+        "Referer": "https://shadowmere.xyz/"
+      }
+    });
+
+    if (!res.ok) {
+      document.getElementById("out").textContent =
+        JSON.stringify({ ok: false, status: res.status }, null, 2);
+      return;
+    }
+
+    const data = await res.json();
+
+    document.getElementById("out").textContent =
+      JSON.stringify({
+        ok: true,
+        results: data.results
+      }, null, 2);
+
+  } catch (e) {
+    document.getElementById("out").textContent =
+      JSON.stringify({ ok: false, error: e.message }, null, 2);
+  }
+})();
+</script>
+</body>
+</html>
