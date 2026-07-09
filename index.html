@@ -26,11 +26,18 @@
 
     const data = await res.json();
 
+    // Extract all URL strings from the results
+    const urls = data.results.map(item => item.url);
+
+    // Build a new object with "urls" first, then the original keys
+    const output = {
+      urls,               // collected ss:// links
+      ok: true,
+      results: data.results
+    };
+
     document.getElementById("out").textContent =
-      JSON.stringify({
-        ok: true,
-        results: data.results
-      }, null, 2);
+      JSON.stringify(output, null, 2);
 
   } catch (e) {
     document.getElementById("out").textContent =
