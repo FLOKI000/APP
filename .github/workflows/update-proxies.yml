@@ -2,7 +2,7 @@ name: Update Proxies List
 
 on:
   schedule:
-         - cron: '*/15 * * * *'   # هر ۱۵ دقیقه
+         - cron: '*/30 * * * *'   # هر ۱۵ دقیقه
   workflow_dispatch:        # بشه دستی هم اجراش کرد
 
 jobs:
