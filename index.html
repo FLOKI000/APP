@@ -19,29 +19,17 @@
     });
 
     if (!res.ok) {
-      document.getElementById("out").textContent =
-        JSON.stringify({ ok: false, status: res.status }, null, 2);
+      document.getElementById("out").textContent = "Fetch error: " + res.status;
       return;
     }
 
     const data = await res.json();
-
-    // Extract all URL strings from the results
-    const urls = data.results.map(item => item.url);
-
-    // Build a new object with "urls" first, then the original keys
-    const output = {
-      urls,               // collected ss:// links
-      ok: true,
-      results: data.results
-    };
-
-    document.getElementById("out").textContent =
-      JSON.stringify(output, null, 2);
+    // خروجی فقط آدرس‌ها، هر کدام در یک خط
+    const urls = data.results.map(item => item.url).join("\n");
+    document.getElementById("out").textContent = urls;
 
   } catch (e) {
-    document.getElementById("out").textContent =
-      JSON.stringify({ ok: false, error: e.message }, null, 2);
+    document.getElementById("out").textContent = "Error: " + e.message;
   }
 })();
 </script>
